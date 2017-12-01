@@ -22,3 +22,8 @@ for index in inputDoubled.indices.dropLast(input.indices.count) {
 
 print(sum1)
 print(sum2)
+
+// Functional solution
+let mappedToIntegers = input.map( { Int(String($0))! })
+print(zip(mappedToIntegers, mappedToIntegers.dropFirst() + mappedToIntegers.prefix(1)).filter({ $0 == $1 }).reduce(0, { $0 + $1.0 }))
+print(zip(mappedToIntegers, mappedToIntegers.dropFirst(mappedToIntegers.count / 2) + mappedToIntegers.prefix(mappedToIntegers.count / 2)).filter({ $0 == $1 }).reduce(0, { $0 + $1.0 }))
